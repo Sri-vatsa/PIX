@@ -5143,3 +5143,13 @@ footer .btn {
   opacity: 0;
   display: none;
 }
+.thumbnail {
+      border: 1px solid #ddd; /* Gray border */
+      border-radius: 4px;  /* Rounded border */
+      padding: 5px; /* Some padding */
+      width: 200px; /* Set a small width */
+}
+#friend-info {
+  box-shadow: 5px 5px 5px #888888;
+  margin-right: 10px;
+}
