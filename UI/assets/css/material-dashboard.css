@@ -5153,3 +5153,20 @@ footer .btn {
   box-shadow: 5px 5px 5px #888888;
   margin-right: 10px;
 }
+
+#modifiedFooter {
+  padding-top: 50px;
+  height: 10px;
+}
+
+#friend-thumbnail {
+  display: inline-block;
+  white-space: normal;
+}
+
+#list-of-friends {
+    overflow-x: scroll;
+    white-space: nowrap;
+    height: 290px;
+    float: none;
+}
