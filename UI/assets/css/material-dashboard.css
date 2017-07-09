@@ -5063,10 +5063,15 @@ footer .btn {
     margin-right: -20px;
   }
 }
+/*Homepage add-on styling*/
 #homepage-carousel {
   box-shadow: 10px 10px 5px #888888;
 }
 
+#divider {
+  padding-top: 75px;
+  padding-bottom: 30px;
+}
 /* Styling for modal*/
 .portfolio-modal .modal-dialog {
   margin: 0;
@@ -5143,6 +5148,8 @@ footer .btn {
   opacity: 0;
   display: none;
 }
+
+/*friends list for flickr & instagram*/
 .thumbnail {
       border: 1px solid #ddd; /* Gray border */
       border-radius: 4px;  /* Rounded border */
@@ -5169,4 +5176,17 @@ footer .btn {
     white-space: nowrap;
     height: 290px;
     float: none;
+}
+
+/*upload page*/
+
+#container {
+    display: table;
+    padding-top: 25%;
+}
+
+#upload {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
