@@ -1,0 +1,6 @@
+#!/bin/bash
+rm -rf /home/pi/photoframe/flickr/* #deleting all files first
+
+download_flickr_set1.py
+
+DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority feh -Z -F -z -Y -D 1 /home/pi/photoframe/flickr &

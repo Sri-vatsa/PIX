@@ -1,0 +1,11 @@
+#!/bin/bash
+
+rm -rf /home/pi/photoframe/insta/*
+
+echo -n "Enter your hashtag:"
+read text
+
+
+python -m instaLooter hashtag $text  /home/pi/photoframe/insta -n 10
+
+DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority feh -Z -F -z -Y -D 2 /home/pi/photoframe/insta &
