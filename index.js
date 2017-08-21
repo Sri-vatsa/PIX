@@ -1,4 +1,7 @@
 const electron = require('electron')
+const {ipcMain} = require('electron')
+const exec = require('child_process').exec
+
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
@@ -22,6 +25,32 @@ function createWindow () {
     slashes: true
   }))
 
+  ipcMain.on('begin', function(event, { instaperson) {
+    var yourscript = exec('sh test.sh ' + instaperson,
+            (error, stdout, stderr) => {
+                console.log(`${stdout}`);
+                console.log(`${stderr}`);
+                if (error !== null) {
+                    console.log(`exec error: ${error}`);
+                }
+            });
+  });
+
+
+/*
+  ipcMain.on('start-slideshow', function(event, data) {
+
+    var yourscript = exec('sh test.sh ' + instatag,
+            (error, stdout, stderr) => {
+                console.log(`${stdout}`);
+                console.log(`${stderr}`);
+                if (error !== null) {
+                    console.log(`exec error: ${error}`);
+                }
+            });
+  });
+
+*/
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
 

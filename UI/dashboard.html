@@ -25,6 +25,7 @@
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 	<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -220,6 +221,8 @@
 			</div>
 		</div>
 
+
+
 		<!--slideshow modal options-->
 
 		<div class="modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -254,16 +257,16 @@
 									</div> -->
 
 									<div class="input_fields_wrap_insta">
+										<br>
 										<button class="add_field_button_insta" style="font-family:Helvetica; border-radius: 10px; margin: 2px;">Add Friends</button>
-
-										<div><input type="text" name="mytext[]" autocomplete="on"></div>
+										<div><input id="instaperson" type="text" name="mytext[]" autocomplete="on"></div>
 									</div>
 
 
 
 									<div class="form-group">
 										<label>Tag to search for:</label>
-										<input name="tag" type="text" class="form-control" placeholder="#whalesharks">
+										<input id="instatag" type="text" class="form-control" placeholder="#whalesharks">
 									</div>
 
 
@@ -290,7 +293,8 @@
 									</div> -->
 
 										<div class="input_fields_wrap_flickr">
-											<label for="sel2">People and Album(separated by comma)</label>
+											<label for="sel2">(Person, Album)</label>
+											<br>
 											<button class="add_field_button_flickr" style="font-family:Helvetica; border-radius: 10px; margin: 2px;">Add Artists</button>
 
 											<div><input type="text" name="mytext[]" autocomplete="on"></div>
@@ -310,7 +314,7 @@
 					<div class="modal-footer">
 						<ul class="list-inline text-center">
 							<li>
-								<button type="button" class="btn btn-primary btn-block">Begin</button>
+								<button id="start-slideshow" type="button" class="btn btn-primary btn-block">Begin</button>
 								<!--implement JS link to start slideshow script-->
 							</li>
 							<li>
@@ -337,6 +341,11 @@
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="assets/js/material.min.js" type="text/javascript"></script>
 <script src="assets/js/core/tether.min.js" type="text/javascript"></script>
+
+<!-- electron renderer -->
+<script>
+    require('../renderer.js')
+</script>
 
 <!-- Form Plugin -->
 <script src="assets/js/haozhe.js"></script>
