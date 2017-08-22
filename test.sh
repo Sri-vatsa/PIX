@@ -1,9 +1,9 @@
 #!/bin/bash
 
-rm -rf /Users/Srivatsa/desktop/insta/*
+rm -rf /home/pi/photoframe/insta/*
 
 #text=$1
 
-python -m instaLooter hashtag $1 /Users/Srivatsa/desktop/insta -n 5
+python -m instaLooter hashtag ocean /home/pi/photoframe/insta -n 5
 
-feh -Z -F -z -Y -D 2 /Users/Srivatsa/desktop/insta &
+DISPLAY=:0.0 XAUTHORITY=/home/pi.Xauthority feh -Z -F -z -Y -D 2 /home/pi/photoframe/insta &

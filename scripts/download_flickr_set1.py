@@ -4,12 +4,16 @@ import flickrapi
 import requests
 import os
 import re
+import sys
 
 FLICKR_KEY = "703974d4cb0b4847212c318ef8b8b756"
 FLICKR_SECRET = "ecfff1ae58eecae3"
-USER_ID = raw_input("user id of artist: ")
-SET_ID = raw_input("albumb number: ")
-NUM_PHOTOS = int(raw_input("number of photos you want to see: "))
+print "hello3"
+USER_ID = sys.argv[1]
+print "hello4"
+SET_ID = sys.argv[2]
+print "hello5"
+#NUM_PHOTOS = int(raw_input("number of photos you want to see: "))
 
 def make_url(photo):
     # url_template = "http://farm{farm-id}.staticflickr.com/
@@ -28,11 +32,11 @@ def main():
     photos = flickr.walk_set(SET_ID)
 
     for photo in photos:
-	if count == NUM_PHOTOS:
+	if count == 10:
 		break
         count += 1
 	url, filename = make_url(photo.attrib)
-        path = '/home/pi/photoframe/flickr/%s' % filename
+        path = '/home/pi/photoframe/final/%s' % filename
         try:
             image_file = open(path)
             print " ---> Already have %s" % url
@@ -44,8 +48,9 @@ def main():
             image_file.close()
             update = True
 
+    """
     #check to see if it needs to remove photos from folder
-    filelist = os.listdir("/home/pi/photoframe/flickr")
+    filelist = os.listdir("/home/pi/photoframe/final")
     if count < len(filelist):
         print " ---> Removing photos"
         for f in filelist:
@@ -59,13 +64,14 @@ def main():
                     break
             else:
                 print " ---> Deleting %s" %f
-                os.remove("/home/pi/photoframe/flickr/%s" %f)
+                os.remove("/home/pi/photoframe/final/%s" %f)
                 update = True
 
     #if it added or removed a photo, update slideshow
-    if update == True:
-        print " ---> Restarting slideshow"
-        os.system("killall feh && /home/pi/bin/script_slideshow.sh")
+    #if update == True:
+        #print " ---> Restarting slideshow"
+        #os.system("killall feh && /home/pi/bin/script_slideshow.sh")
+"""
 
 if __name__ == '__main__':
     main()

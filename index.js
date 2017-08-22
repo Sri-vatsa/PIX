@@ -25,8 +25,9 @@ function createWindow () {
     slashes: true
   }))
 
-  ipcMain.on('begin', function(event, { instaperson) {
-    var yourscript = exec('sh test.sh ' + instaperson,
+  ipcMain.on('begin', function(event, instatag, instaid, flickrtag, flickruser_id, flickruser_alb_id) {
+
+    var yourscript = exec('sh connect.sh ' + instatag + ' ' + instaid + ' ' + flickrtag + ' ' + flickruser_id + ' ' + flickruser_alb_id,
             (error, stdout, stderr) => {
                 console.log(`${stdout}`);
                 console.log(`${stderr}`);
