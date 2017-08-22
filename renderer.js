@@ -18,6 +18,7 @@ document.getElementById("start-slideshow").addEventListener("click", function (e
   ipcRenderer.send('begin', instatag);
 }*/
 
+//check if input field is empty
 if(instatag == null || instatag == "")
   instatag = "BLANK";
 
@@ -33,6 +34,7 @@ if(flickruser_id == null || flickruser_id == "")
 if(flickruser_alb_id == null || flickruser_alb_id == "")
   flickruser_alb_id = "BLANK";
 
+//pass message to main process
 ipcRenderer.send('begin', instatag, instaid, flickrtag, flickruser_id, flickruser_alb_id);
 
 

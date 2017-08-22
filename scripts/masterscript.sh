@@ -1,13 +1,14 @@
 #!/bin/sh
 
+#Manages Removal of pics, download of pics & start of slideshow
+
 #remove all pictures in the folder
 rm -rf /home/pi/photoframe/final/*
 
 #download pics from relevant sources (ie flickr & instagram)
-# $1 = instaTag $2 = flickrTag $3 = instaPerson $4 = flickrPerson
+#$1 = instagram Tag $3 = instagram user-id $3 = flickr Tag $4 = flickr user-id
 #$5 = flickr_album_number
 
-#text=$1
 
 #download pics form instagram by tag
 if [ "$1" != "BLANK" ]
@@ -36,5 +37,5 @@ then
 fi
 
 
-#display slideshow
+#display slideshow on pi
 DISPLAY=:0.0 XAUTHORITY=/home/pi.Xauthority feh -Z -F -z -Y -D 2 /home/pi/photoframe/final &
