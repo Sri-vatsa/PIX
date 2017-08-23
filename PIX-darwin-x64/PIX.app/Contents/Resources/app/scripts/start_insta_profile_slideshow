@@ -1,0 +1,28 @@
+#!/bin/bash
+
+rm -rf /home/pi/photoframe/insta/*
+
+echo -n "What is your account name? "
+read accountName
+
+#hide the password 
+stty -echo 
+echo -n "What is your password? "
+read password 
+
+echo #create new line
+stty echo #unhide the rest of the inputs
+
+echo -n "How many users to be displayed? "
+read number
+
+for i in {1..$number }
+do
+	echo -n "Enter the username: "
+	read username
+	python -m instaLooter $username /home/pi/photoframe/insta -N -n 5   --username $accountName --password $password
+	
+done
+
+
+DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority feh -Z -F -z -Y -D 5 /home/pi/photoframe/insta &

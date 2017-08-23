@@ -1,0 +1,10 @@
+#!/bin/bash
+rm -rf /home/pi/photoframe/flickr_tag/*
+
+echo -n "what is your tag? "
+read tag 
+wget 'http://api.flickr.com/services/feeds/photos_public.gne?tags='$tag -O- \
+| grep -Po 'http://[^.]+\.staticflickr[^"]+(_b.jpg|_z.jpg)' \
+| wget -P /home/pi/photoframe/flickr_tag -nc -i-
+
+DISPLAY=:0.0 XAUTHORITY=/home/pi/.Xauthority feh -Z -F -z -Y -D 1 /home/pi/photoframe/flickr_tag

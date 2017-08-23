@@ -14,7 +14,7 @@
 
 	<!-- Bootstrap core CSS     -->
 	<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css" />
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
 
@@ -25,6 +25,7 @@
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300|Material+Icons' rel='stylesheet' type='text/css'>
 	<link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -220,6 +221,8 @@
 			</div>
 		</div>
 
+
+
 		<!--slideshow modal options-->
 
 		<div class="modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
@@ -239,7 +242,6 @@
 							<form id="temp">
 								<div class="col-lg-5 text-center">
 									<i class="fa fa-instagram fa-4x" aria-hidden="true"></i>
-									<!-- form goes here-->
 
 									<!--
 									<div class="form-group">
@@ -254,16 +256,17 @@
 									</div> -->
 
 									<div class="input_fields_wrap_insta">
+										<label>(Username)</label>
+										<br>
 										<button class="add_field_button_insta" style="font-family:Helvetica; border-radius: 10px; margin: 2px;">Add Friends</button>
-
-										<div><input type="text" name="mytext[]" autocomplete="on"></div>
+										<div><input id="instaid" type="text" name="mytext[]" autocomplete="on"></div>
 									</div>
 
 
 
 									<div class="form-group">
 										<label>Tag to search for:</label>
-										<input name="tag" type="text" class="form-control" placeholder="#whalesharks">
+										<input id="instatag" type="text" class="form-control text-center" placeholder="#whalesharks">
 									</div>
 
 
@@ -276,7 +279,6 @@
 								</div>
 								<div class="col-lg-5 text-center">
 									<i class="fa fa-flickr fa-4x" aria-hidden="true"></i>
-									<!-- insert form here-->
 									<form>
 										<!--	<div class="form-group">
 										<label for="sel2">People (hold shift to select more than one):</label>
@@ -290,15 +292,16 @@
 									</div> -->
 
 										<div class="input_fields_wrap_flickr">
+											<label>(Url)</label>
+											<br>
 											<button class="add_field_button_flickr" style="font-family:Helvetica; border-radius: 10px; margin: 2px;">Add Artists</button>
 
-											<div><input type="text" name="mytext[]" autocomplete="on"></div>
-											<label for="sel2">(Person, Album)</label>
+											<div><input id="flickrurl" type="text" name="mytext[]" autocomplete="on"></div>
 										</div>
 
 										<div class="form-group">
 											<label>Tag to search for:</label>
-											<input name="tag" type="text" class="form-control" placeholder="#dolphins">
+											<input id="flickrtag" name="tag" type="text" class="form-control text-center" placeholder="#dolphins">
 										</div>
 									</form>
 
@@ -310,14 +313,14 @@
 					<div class="modal-footer">
 						<ul class="list-inline text-center">
 							<li>
-								<button type="button" class="btn btn-primary btn-block">Begin</button>
+								<button id="start-slideshow" type="button" class="btn btn-primary btn-block">Begin</button>
 								<!--implement JS link to start slideshow script-->
 							</li>
 							<li>
 								<button type="button" class="btn btn-warning btn-block" onclick= "clearInput()"> Clear</button>
 							</li>
 							<li>
-								<button type="button" class="btn btn-info btn-block" data-dismiss="modal">Close</button>
+								<button id="kill-slideshow" type="button" class="btn btn-info btn-block">End</button>
 							</li>
 						</ul>
 					</div>
@@ -337,6 +340,11 @@
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="assets/js/material.min.js" type="text/javascript"></script>
 <script src="assets/js/core/tether.min.js" type="text/javascript"></script>
+
+<!-- electron renderer -->
+<script>
+    require('../renderer.js')
+</script>
 
 <!-- Form Plugin -->
 <script src="assets/js/haozhe.js"></script>
